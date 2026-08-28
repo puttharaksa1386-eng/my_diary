@@ -3,36 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Voice Diary 🎧</title>
+  <title>Our Memory Box 🎧🤍</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Kanit', sans-serif; background: #faf9f6; padding: 20px; color: #333; display: flex; justify-content: center; }
-    .card { background: white; width: 100%; max-width: 380px; padding: 25px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-    .day-title { font-size: 20px; font-weight: bold; color: #e07a5f; margin-bottom: 15px; }
-    audio { width: 100%; margin: 15px 0; border-radius: 10px; }
-    .note-box { background: #f4f1de; padding: 15px; border-radius: 15px; text-align: left; font-size: 15px; line-height: 1.6; margin: 15px 0; color: #3d405b; }
-    .photo-box img { width: 100%; border-radius: 15px; object-fit: cover; margin-top: 10px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Prompt', sans-serif;
+      background-color: #f7f4ef;
+      color: #4a403a;
+      display: flex;
+      justify-content: center;
+      padding: 30px 15px;
+      min-height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 420px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 22px;
+      font-weight: 500;
+      color: #2b2521;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      font-size: 13px;
+      color: #8c7b70;
+      margin-top: 6px;
+    }
+    
+    /* การ์ดบันทึกประจำวัน */
+    .diary-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      border: 1px solid #efeae4;
+    }
+    .day-badge {
+      display: inline-block;
+      background: #eee7df;
+      color: #6b5b52;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .date-text {
+      font-size: 13px;
+      color: #a0938a;
+      margin-bottom: 15px;
+    }
+    
+    /* เครื่องเล่นเสียง */
+    audio {
+      width: 100%;
+      height: 40px;
+      margin: 10px 0 15px 0;
+      border-radius: 20px;
+    }
+    
+    /* ข้อความ */
+    .note-content {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #5a4e46;
+      background: #faf8f5;
+      padding: 14px 16px;
+      border-radius: 14px;
+      white-space: pre-line;
+    }
+    
+    /* รูปภาพ */
+    .photo-container {
+      margin-top: 15px;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+    .photo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+    }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="day-title">Day 1 — 29 สิงหาคม 2026 🎧</div>
+  <div class="container">
+    <header>
+      <h1>Everyday With You 🤍</h1>
+      <p>บันทึกเสียงและเรื่องราวในวันที่เราห่างกัน</p>
+    </header>
 
-    <!-- 🎧 ส่วนเล่นเสียง -->
-    <audio controls>
-      <source src="day1.mp3" type="audio/mpeg">
-      เบราว์เซอร์ไม่รองรับการเล่นเสียง
-    </audio>
+    <!-- ==================== DAY 1 ==================== -->
+    <div class="diary-card">
+      <span class="day-badge">Day 1</span>
+      <div class="date-text">29 สิงหาคม 2026</div>
 
-    <!-- 📝 ข้อความบันทึก -->
-    <div class="note-box">
-      <p>วันนี้เป็นวันแรกที่ได้เริ่มทำไดอารี่เสียง ยินดีที่ได้เล่าเรื่องราวในวันนี้ให้เธอนะ 🤍</p>
+      <!-- ส่วนเล่นเสียง (รองรับทั้ง mp3 และ m4a เพื่อให้โหลดเร็วขึ้น) -->
+      <audio controls preload="metadata">
+        <source src="day1.m4a" type="audio/mp4">
+        <source src="day1.mp3" type="audio/mpeg">
+        เบราว์เซอร์ไม่รองรับการเล่นเสียง
+      </audio>
+
+      <!-- ข้อความประจำวัน -->
+      <div class="note-content">
+        วันนี้เป็นวันแรกที่เริ่มอัดเสียงเก็บไว้... อยากให้เธอรู้ว่าถึงเราจะห่างกัน แต่คิดถึงเธอเสมอนะ 🎧
+      </div>
+
+      <!-- รูปภาพประจำวัน (ถ้าไม่มีรูป ระบบจะซ่อนให้อัตโนมัติ) -->
+      <div class="photo-container">
+        <img src="day1.jpg" alt="Day 1" onerror="this.parentElement.style.display='none'">
+      </div>
     </div>
 
-    <!-- 📷 รูปภาพ -->
-    <div class="photo-box">
-      <img src="day1.jpg" alt="Day 1 Photo" onerror="this.style.display='none'">
-    </div>
   </div>
 
 </body>
