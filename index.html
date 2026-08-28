@@ -1,54 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ระหว่างที่เราไม่ได้คุยกัน 🤍</title>
-<style>
-:root{--bg:#fffaf8;--card:#fff;--text:#493d3a;--muted:#8f7f79;--accent:#b98782;--line:#eadfdb}
-*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#fffaf8,#f8efec);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai",sans-serif;color:var(--text)}
-.wrap{max-width:760px;margin:auto;padding:28px 18px 60px}
-.hero{text-align:center;padding:45px 10px 30px}.heart{font-size:30px}.hero h1{font-size:30px;margin:12px 0 8px;font-weight:650}.hero p{color:var(--muted);line-height:1.7;margin:0 auto;max-width:520px}
-.card{background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:24px;padding:22px;margin:16px 0;box-shadow:0 8px 30px rgba(100,70,60,.06)}
-.date{font-size:14px;color:var(--accent);font-weight:650}.title{font-size:20px;margin:6px 0 12px}.note{line-height:1.8;white-space:pre-wrap;color:#5e504b}.empty{text-align:center;color:var(--muted);padding:25px}
-audio{width:100%;margin:8px 0 4px} .photo{width:100%;max-height:420px;object-fit:cover;border-radius:16px;margin-top:10px}
-footer{text-align:center;color:#a08e88;font-size:12px;margin-top:35px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Voice Diary 🎧</title>
+  <style>
+    body { font-family: 'Kanit', sans-serif; background: #faf9f6; padding: 20px; color: #333; display: flex; justify-content: center; }
+    .card { background: white; width: 100%; max-width: 380px; padding: 25px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
+    .day-title { font-size: 20px; font-weight: bold; color: #e07a5f; margin-bottom: 15px; }
+    audio { width: 100%; margin: 15px 0; border-radius: 10px; }
+    .note-box { background: #f4f1de; padding: 15px; border-radius: 15px; text-align: left; font-size: 15px; line-height: 1.6; margin: 15px 0; color: #3d405b; }
+    .photo-box img { width: 100%; border-radius: 15px; object-fit: cover; margin-top: 10px; }
+  </style>
 </head>
 <body>
-<div class="wrap">
-<section class="hero">
-<div class="heart">🤍</div>
-<h1>ระหว่างที่เราไม่ได้คุยกัน</h1>
-<p>เรื่องราวเล็ก ๆ ของเราในแต่ละวัน<br>บางเรื่องไม่ได้พูดในตอนนั้น แต่อยากให้เธอรู้ว่าวันนั้นเราเป็นอย่างไร</p>
-</section>
-<div id="entries"></div>
-<footer>บันทึกไว้ด้วยความจริงใจ ไม่ได้มีไว้เพื่อกดดันใคร</footer>
-</div>
-<script>
-/*
-เพิ่มเรื่องราวโดยแก้ข้อมูลในตัวแปร entries ด้านล่าง
-audio: ใส่ชื่อไฟล์ เช่น "audio/day01.m4a"
-photo: ใส่ชื่อไฟล์ เช่น "photos/day01.jpg"
-*/
-const entries = [
-  // ตัวอย่าง:
-  // {date:"28 สิงหาคม 2026", title:"วันที่ 1", text:"วันนี้เรา...", audio:"audio/day01.m4a", photo:"photos/day01.jpg"},
-];
 
-const box=document.getElementById("entries");
-if(!entries.length){
- box.innerHTML='<div class="card empty">ยังไม่มีบันทึกวันนี้ 🤍<br>เพิ่ม Day 1 ในไฟล์ index.html ได้เลย</div>';
-}else{
- entries.slice().reverse().forEach(e=>{
-   const c=document.createElement("article"); c.className="card";
-   c.innerHTML=`<div class="date">${e.date||""}</div><div class="title">${e.title||"บันทึกของวันนี้"}</div>`;
-   if(e.audio)c.innerHTML+=`<audio controls preload="none" src="${e.audio}"></audio>`;
-   if(e.text)c.innerHTML+=`<div class="note">${e.text.replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]))}</div>`;
-   if(e.photo)c.innerHTML+=`<img class="photo" loading="lazy" src="${e.photo}" alt="">`;
-   box.appendChild(c);
- });
-}
-</script>
+  <div class="card">
+    <div class="day-title">Day 1 — 29 สิงหาคม 2026 🎧</div>
+
+    <!-- 🎧 ส่วนเล่นเสียง -->
+    <audio controls>
+      <source src="day1.mp3" type="audio/mpeg">
+      เบราว์เซอร์ไม่รองรับการเล่นเสียง
+    </audio>
+
+    <!-- 📝 ข้อความบันทึก -->
+    <div class="note-box">
+      <p>วันนี้เป็นวันแรกที่ได้เริ่มทำไดอารี่เสียง ยินดีที่ได้เล่าเรื่องราวในวันนี้ให้เธอนะ 🤍</p>
+    </div>
+
+    <!-- 📷 รูปภาพ -->
+    <div class="photo-box">
+      <img src="day1.jpg" alt="Day 1 Photo" onerror="this.style.display='none'">
+    </div>
+  </div>
+
 </body>
 </html>
